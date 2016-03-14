@@ -19,9 +19,15 @@ gem 'jquery-datatables-rails' 		      # jQuery Datatables
 gem 'will_paginate', '~> 3.0.6'				# Paginacion
 gem 'will_paginate-bootstrap', '~> 1.0', '>= 1.0.1'
 gem 'bootstrap-sass'						       # Styling
+gem 'toastr-rails'
+gem "paperclip", "~> 4.3"
+gem 'friendly_id', '~> 5.1'
+gem 'breadcrumbs_on_rails', '~> 2.3', '>= 2.3.1'
 
 group :development, :test do
   gem 'byebug'
+	gem 'quiet_assets'
+	gem "letter_opener"
 end
 
 group :development do
