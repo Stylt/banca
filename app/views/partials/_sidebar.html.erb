@@ -9,7 +9,8 @@
         <img src="<%= asset_path ('profile.png') %>" class="img-circle" alt="User Image">
       </div>
       <div class="pull-left info">
-        <p><%= current_admin.email %></p>
+        <p><%= current_admin.name.present? ? current_admin.name : current_admin.email %>
+          <%= current_admin.last_name if current_admin.last_name.present?%></p>
       </div>
     </div>
 

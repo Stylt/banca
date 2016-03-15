@@ -10,21 +10,48 @@
 <body class="hold-transition skin-blue sidebar-mini">
 
 <div class="wrapper">
+  <div class="col-xs-12">
+    <% flash.each do |name, msg| -%>
+      <% case name %>
+        <% when 'success' %>
+          <script> toastr.success("<%= msg %>"); </script>
+        <% when 'error' %>
+          <script> toastr.error("<%= msg %>"); </script>
+        <% when 'warning' %>
+          <script> toastr.warning("<%= msg %>"); </script>
+        <% else %>
+          <script> toastr.info("<%= msg %>"); </script>
+      <% end %>
 
+    <% end -%>
+  </div>
   <!-- Main Header -->
   <%= render "partials/header" %>
   <!-- Left side column. contains the logo and sidebar -->
   <%= render "partials/sidebar" %>
 
   <!-- Content Wrapper. Contains page content -->
-  <%= yield %>
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        <%= yield(:section_title) %>
+        <small><%= yield(:section_description) %></small>
+      </h1>
 
-  <!-- Main Footer -->
-  <%= render "partials/footer" %>
+      <ol class="breadcrumb">
+        <%= render_breadcrumbs :separator => '', :tag => :li %>
+        <!--<li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>-->
+        <!--<li class="active">Here</li>-->
+      </ol>
+    </section>
 
+    <!-- Main content -->
+    <section class="content">
+      <%= yield %>
+
+    </section>
+  </div>
 </div>
-
-
-
 </body>
 </html>

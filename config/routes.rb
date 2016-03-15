@@ -3,4 +3,7 @@ Rails.application.routes.draw do
 
 	root 'dashboard#index'
 
+	resources :profile, only: [:index, :update]
+
+
 end
